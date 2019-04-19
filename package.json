@@ -1,0 +1,14 @@
+{
+  "name": "yujung_ui",
+  "version": "1.0.0",
+  "description": "YuJung's UI",
+  "main": "babylon.gui.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YuJung",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}

@@ -1,1 +1,0 @@
-node node_modules/http-server/bin/http-server -c-1 -p 80 -a 0.0.0.0

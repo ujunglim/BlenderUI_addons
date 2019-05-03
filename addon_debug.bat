@@ -1,0 +1,1 @@
+.\Blender\blender ./Web3d_Project/Blender_project/CreateUI.blend -x 1 --python ./Addon_Reloader/addon_reloader.py

@@ -11,15 +11,15 @@ if "bpy" in locals():
     import imp
     imp.reload(panel)
     imp.reload(properties)
-    # imp.reload(move)
-    # imp.reload(create_element)
+    imp.reload(move)
+    imp.reload(create_element)
     # imp.reload(add_material)
     # imp.reload(change_size)
 else:
     from .panel import (panelRegister,panelUnregister)
     from .properties import (propertiesRegister,propertiesUnregister)
-    # from .move import Move
-    # from .create_element import CreateElement
+    from .move import Move
+    from .create_element import CreateElement
     # from .add_material import AddMaterial
     # from .change_size import ChangeSize
 
@@ -59,12 +59,11 @@ def register():
     panelRegister()
     
 def unregister():
-    # bpy.utils.unregister_class(YJ_UI_PANEL)
     # bpy.utils.unregister_class(Move)
     # bpy.utils.unregister_class(CreateElement)
     # bpy.utils.unregister_class(AddMaterial)
     # bpy.utils.unregister_class(ChangeSize)
-    #bpy.utils.unregister_class(CalculateSalary)
+    # bpy.utils.unregister_class(CalculateSalary)
 
     panelUnregister()
     propertiesUnregister()

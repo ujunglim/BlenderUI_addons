@@ -33,7 +33,7 @@ class YJ_UI_PANEL(bpy.types.Panel):
         col.prop(context.scene, "Location")
 
         #Create Element
-        #layout.operator("view3d.create_element",text = "Create Element")
+        layout.operator("view3d.create_element",text = "Create Element")
 
         layout.separator()
         # #Calculate Salary
@@ -48,7 +48,7 @@ class YJ_UI_PANEL(bpy.types.Panel):
 
         #Change object Size
         layout.separator()
-        row.label(text = "Change aaaaaaSize")
+        row.label(text = "Change Size")
         row = layout.row(align = True)
         row.prop(context.scene, "size")
 

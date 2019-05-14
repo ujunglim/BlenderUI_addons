@@ -12,16 +12,23 @@ if "bpy" in locals():
     imp.reload(panel)
     imp.reload(properties)
     imp.reload(move)
+    imp.reload(lock)
     imp.reload(create_element)
-    # imp.reload(add_material)
-    # imp.reload(change_size)
+    imp.reload(add_material)
+    imp.reload(add_texture)
+    imp.reload(change_size)
+    imp.reload(topview_camera)
 else:
     from .panel import (panelRegister,panelUnregister)
     from .properties import (propertiesRegister,propertiesUnregister)
     from .move import Move
+    from .lock import LockLocation
     from .create_element import CreateElement
-    # from .add_material import AddMaterial
-    # from .change_size import ChangeSize
+    from .add_material import AddMaterial
+    from .add_texture import AddTexture
+    from .change_size import ChangeSize
+    from .topview_camera import TopviewCamera
+    
 
 from sys import modules
 import bpy,os
@@ -48,10 +55,14 @@ from bpy.types import Header, Menu
 
 #================================================================
 def register(): 
-    # bpy.utils.register_class(Move)
-    # bpy.utils.register_class(CreateElement)
-    # bpy.utils.register_class(AddMaterial)
-    # bpy.utils.register_class(ChangeSize)
+    bpy.utils.register_class(Move)
+    bpy.utils.register_class(LockLocation)
+    bpy.utils.register_class(CreateElement)
+    bpy.utils.register_class(AddMaterial)
+    bpy.utils.register_class(AddTexture)
+    bpy.utils.register_class(ChangeSize)
+    bpy.utils.register_class(TopviewCamera)
+
     
     #bpy.utils.register_class(CalculateSalary) 
 
@@ -59,10 +70,13 @@ def register():
     panelRegister()
     
 def unregister():
-    # bpy.utils.unregister_class(Move)
-    # bpy.utils.unregister_class(CreateElement)
-    # bpy.utils.unregister_class(AddMaterial)
-    # bpy.utils.unregister_class(ChangeSize)
+    bpy.utils.unregister_class(TopviewCamera)
+    bpy.utils.unregister_class(ChangeSize)
+    bpy.utils.unregister_class(AddTexture)
+    bpy.utils.unregister_class(AddMaterial)
+    bpy.utils.unregister_class(CreateElement)
+    bpy.utils.unregister_class(LockLocation)
+    bpy.utils.unregister_class(Move)
     # bpy.utils.unregister_class(CalculateSalary)
 
     panelUnregister()

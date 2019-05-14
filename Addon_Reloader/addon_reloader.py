@@ -19,7 +19,6 @@ class Reload_Addon(bpy.types.Operator):
         addon_folder = 'UI_Editor'
 
         source_path = os.path.abspath(bpy.data.filepath+ "/../../..")
-        #source_path = 'd:/Workspace/BlenderUI_addons'
 
         files_mask = '*.py'
         add_files_names = []

@@ -1,15 +1,7 @@
 import bpy
-    # bpy.types.Scene.Size = bpy.props.IntProperty(
-    #     name = "Size",
-    #     description = "Size of object",
-    #     default = 0,
-    #     min = 0,
-    #     max = 10,
-    #     subtype = 'NONE'
-    # )
 
     # bpy.types.Scene.ExpectSalary= bpy.props.IntProperty(
-    #     name = "Salary",
+    #     name = "Salary", 
     #     description = "Expected salary",
     #     default = 6600,
     #     min = 0,
@@ -41,38 +33,51 @@ import bpy
     # )
 
 def propertiesRegister():
-    bpy.types.Scene.width = bpy.props.IntProperty(
-        name = "Width",
-        description = "Size of object",
-        default = 0,
-        min = 0,
-        max = 10,
-        subtype = 'NONE'
-    )
-
-    bpy.types.Scene.height = bpy.props.IntProperty(
-        name = "Height",
-        description = "Size of object",
-        default = 0,
-        min = 0,
-        max = 10,
-        subtype = 'NONE'
-    )
     
-    bpy.types.Scene.Location= bpy.props.IntVectorProperty(
+    bpy.types.Scene.Location= bpy.props.FloatVectorProperty(
         name = "Location",
         description = "Location of object",
-        default =(5,5,5),
+        default =(0,0,0),
         min = -5,
         max = 10,
         update = lambda self,context: bpy.ops.view3d.move_cube(),
         subtype = "XYZ"
     )
 
+    bpy.types.Scene.LockLocation= bpy.props.BoolVectorProperty(
+        name = "Lock",
+        description = "Lock editing of location in the interface",
+        default = (False,False,False),
+        update = lambda self,context: bpy.ops.view3d.lock_location(),
+        subtype = "NONE",
+        size = 3
+    )
+
+
+    bpy.types.Object.Width = bpy.props.FloatProperty(
+        name = "Width",
+        description = "Width of object",
+        default = 1,
+        min = 1,
+        max = 100,
+        update = lambda self,context: bpy.ops.view3d.size_plane(),
+        subtype = 'NONE'
+    )
+
+    bpy.types.Object.Height = bpy.props.FloatProperty(
+        name = "Height",
+        description = "Height of object",
+        default = 1,
+        min = 1,
+        max = 100,
+        update = lambda self,context: bpy.ops.view3d.size_plane(),
+        subtype = 'NONE'
+    )
+
 def propertiesUnregister():
     del bpy.types.Scene.Location
-    del bpy.types.Scene.height
-    del bpy.types.Scene.width
+    del bpy.types.Object.Height
+    del bpy.types.Object.Width
     # del bpy.types.Scene.ExpectSalary
     # del bpy.types.Scene.BaseSalary
     # del bpy.types.Scene.TaxRate

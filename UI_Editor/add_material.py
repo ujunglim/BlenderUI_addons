@@ -6,7 +6,7 @@ class AddMaterial(bpy.types.Operator):
     
     def execute(self,context):
         bpy.ops.material.new()
-        print(1111)
+        print("ADD MATEIRAL........................")
         return {"FINISHED"}
 
 

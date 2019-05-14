@@ -6,7 +6,7 @@ class Move(bpy.types.Operator):
     
     def execute(self,context):
         context.object.location = context.scene.Location
-        print(1234)
+        print("move object")
         
         code = """
         function createUI()
